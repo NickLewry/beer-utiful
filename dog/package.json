@@ -5,11 +5,44 @@
   "author": "NickLewry",
   "license": "MIT",
   "scripts": {
-    "start": "yarn tsc-watch --onSuccess 'node ./dest/'"
+    "start": "yarn tsc-watch --onSuccess 'node ./dest/'",
+    "test": "jest"
   },
   "devDependencies": {
+    "@types/koa": "^2.0.48",
+    "@types/koa-router": "^7.0.40",
+    "@types/koa2-cors": "^2.0.1",
+    "@types/request": "^2.48.1",
+    "@types/request-promise-native": "^1.0.15",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.7",
+    "ts-jest": "^24.0.2",
     "ts-node": "^8.1.0",
     "tsc-watch": "^2.1.2",
     "typescript": "^3.4.3"
+  },
+  "dependencies": {
+    "@types/jest": "^24.0.11",
+    "@types/supertest": "^2.0.7",
+    "jest": "^24.7.1",
+    "koa": "^2.7.0",
+    "koa-router": "^7.4.0",
+    "koa2-cors": "^2.0.6",
+    "supertest": "^4.0.2"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
   }
 }
