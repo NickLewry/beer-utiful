@@ -2,22 +2,31 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:7.10
-
-    working_directory: dog
+      - image: circleci/node:8
 
     steps:
       - checkout
+
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-{{ checksum "dog/package.json" }}
             - v1-dependencies-
 
-      - run: yarn install
+      - run:
+          command: yarn install
+          working_directory: dog
 
       - save_cache:
           paths:
             - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+          key: v1-dependencies-{{ checksum "dog/package.json" }}
 
-      - run: yarn test
+      - run:
+          command: yarn test
+          working_directory: dog
+
+workflows:
+  version: 2
+  test_and_deploy:
+    jobs:
+      - build
