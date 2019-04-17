@@ -4,7 +4,7 @@ jobs:
     docker:
       - image: circleci/node:7.10
 
-    working_directory: dog
+    working_directory: ~/dog
 
     steps:
       - checkout
