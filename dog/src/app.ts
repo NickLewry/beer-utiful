@@ -4,19 +4,19 @@ import cors from "koa2-cors";
 
 import { getBeers, getBeerById } from "./beers";
 
-export default (request: any) => {
+export default (request: any, cache: any) => {
   const router = new Router();
 
   router.get("/beers", async ctx => {
     const page = ctx.query.page;
-    const beers = await getBeers(request, page);
+    const beers = await getBeers(request, cache, page);
     ctx.status = 200;
     ctx.body = beers;
   });
 
   router.get("/beers/:id", async ctx => {
     const id = ctx.params.id;
-    const beer = await getBeerById(request, id);
+    const beer = await getBeerById(request, cache, id);
     ctx.status = 200;
     ctx.body = beer;
   });
