@@ -5,7 +5,8 @@
   "author": "NickLewry",
   "license": "MIT",
   "scripts": {
-    "start": "yarn tsc-watch --onSuccess 'node ./dest/'",
+    "tsc": "tsc",
+    "start:dev": "yarn tsc-watch --onSuccess 'node ./dest/'",
     "test": "jest"
   },
   "devDependencies": {
